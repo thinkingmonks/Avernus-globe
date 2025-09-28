@@ -1,0 +1,4 @@
+.country-box img {
+    transition: opacity 0.3s ease-in-out;
+    will-change: opacity;
+}
