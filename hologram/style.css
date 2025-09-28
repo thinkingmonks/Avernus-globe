@@ -19,7 +19,7 @@ a{
 }
 @font-face {
   font-family: 'BaseNeueTrial';
-  src: url('/fonts/BASENEUETRIAL-CONDBOLDOBLIQ.TTF') format('truetype');
+  src: url('../fonts/BASENEUETRIAL-CONDBOLDOBLIQ.TTF') format('truetype');
   font-weight: 700; /* Bold */
   font-style: italic;
   font-display: swap;
@@ -27,7 +27,7 @@ a{
 
 @font-face {
   font-family: 'BaseNeueTrial';
-  src: url('/fonts/BASENEUETRIAL-CONDEXTBDOBLIQ.TTF') format('truetype');
+  src: url('../fonts/BASENEUETRIAL-CONDEXTBDOBLIQ.TTF') format('truetype');
   font-weight: 800; /* Extra-bold */
   font-style: italic;
   font-display: swap;
@@ -35,7 +35,7 @@ a{
 
 @font-face {
   font-family: 'BaseNeueTrial';
-  src: url('/fonts/BASENEUETRIAL-CONDLIGHTOBLIQ.TTF') format('truetype');
+  src: url('../fonts/BASENEUETRIAL-CONDLIGHTOBLIQ.TTF') format('truetype');
   font-weight: 300; /* Light */
   font-style: italic;
   font-display: swap;
@@ -43,7 +43,7 @@ a{
 
 @font-face {
   font-family: 'BaseNeueTrial';
-  src: url('/fonts/BASENEUETRIAL-CONDOBLIQ.TTF') format('truetype');
+  src: url('../fonts/BASENEUETRIAL-CONDOBLIQ.TTF') format('truetype');
   font-weight: 400; /* Regular */
   font-style: italic;
   font-display: swap;
