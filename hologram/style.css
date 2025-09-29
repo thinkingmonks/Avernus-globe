@@ -19,7 +19,7 @@ a{
 }
 @font-face {
   font-family: 'BaseNeueTrial';
-  src: url('/fonts/BASENEUETRIAL-CONDBOLDOBLIQ.TTF') format('truetype');
+  src: url('../fonts/BASENEUETRIAL-CONDBOLDOBLIQ.TTF') format('truetype');
   font-weight: 700; /* Bold */
   font-style: italic;
   font-display: swap;
@@ -27,7 +27,7 @@ a{
 
 @font-face {
   font-family: 'BaseNeueTrial';
-  src: url('/fonts/BASENEUETRIAL-CONDEXTBDOBLIQ.TTF') format('truetype');
+  src: url('../fonts/BASENEUETRIAL-CONDEXTBDOBLIQ.TTF') format('truetype');
   font-weight: 800; /* Extra-bold */
   font-style: italic;
   font-display: swap;
@@ -35,7 +35,7 @@ a{
 
 @font-face {
   font-family: 'BaseNeueTrial';
-  src: url('/fonts/BASENEUETRIAL-CONDLIGHTOBLIQ.TTF') format('truetype');
+  src: url('../fonts/BASENEUETRIAL-CONDLIGHTOBLIQ.TTF') format('truetype');
   font-weight: 300; /* Light */
   font-style: italic;
   font-display: swap;
@@ -43,7 +43,7 @@ a{
 
 @font-face {
   font-family: 'BaseNeueTrial';
-  src: url('/fonts/BASENEUETRIAL-CONDOBLIQ.TTF') format('truetype');
+  src: url('../fonts/BASENEUETRIAL-CONDOBLIQ.TTF') format('truetype');
   font-weight: 400; /* Regular */
   font-style: italic;
   font-display: swap;
@@ -291,7 +291,7 @@ a{
     }
 	.back-btn{
 		position: relative;
-		top: 12vw;
+		top: 10vw;
 		left: 1vw;
 		width: 3vw;
 		background: url('/images/back-arrow.svg') no-repeat center center;
@@ -360,7 +360,7 @@ a{
 	.logo-back-btn{
     position: absolute;
     cursor: pointer;
-    top: 15vw;
+    top: -5vw;
     left: 0vw;
     width: 3.5vw;
     height: auto;
@@ -406,78 +406,145 @@ a{
 
 /* Responsive styles for tablet and mobile */
 @media (max-width: 1024px) {
-	.header {
-		height: 22vw;
+	html, body {
+		min-height: 100vh;
+		width: 100%;
+		overflow-x: hidden;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: start;
+		overflow: hidden;
 	}
+	
+	.header {
+		height: 25vw;
+		padding: 2vw 0;
+		width: 100%;
+	}
+	
 	.heading, .country-name {
+		font-size: 7vw;
+	}
+	
+	.presence-label, .sub-heading {
+		font-size: 4vw;
+	}
+	
+	#myearth {
+		height: 70vh;
+		max-height: none;
+		width: 100%;
+	}
+	
+	#vertical-swiper, #asia-swiper, #europe-swiper, #northamerica-swiper, #southamerica-swiper, #africa-swiper {
+		width: 100%;
+        height: 25vh;
+        right: 2vw;
+        top: 72vh;
+	}
+	
+	#vertical-swiper .swiper-slide, #asia-swiper .swiper-slide, #europe-swiper .swiper-slide, #northamerica-swiper .swiper-slide, #southamerica-swiper .swiper-slide, #africa-swiper .swiper-slide {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	#countries {
+		position: relative;
+		height: auto;
+		min-height: 25vh;
+		right: 0;
+		width: 85%;
+		gap: 2vw;
+	}
+	
+	.country-boxes {
+		width: 60%;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2vw;
+		margin: 0 auto;
+		bottom: -9vw;
+		margin: 0 auto;
+	}
+	
+	.country-box {
+		width: 25vw;
+		height: 15vw;
+	}
+	
+	.logo-back-btn, .logo-back-btn-2, .back-btn {
+		width: 8vw;
+        top: 10vw;
+        left: 0;
+	}
+	
+	#glow {
+		height: 55vh;
+        max-height: none;
+        width: 55vh;
+        max-width: none;
+	}
+	
+	.swiper-slide-active {
+		font-size: 4vw;
+	}
+	
+	#europe-swiper .swiper-slide-active .country span,
+	#asia-swiper .swiper-slide-active .country span,
+	#northamerica-swiper .swiper-slide-active .country span,
+	#southamerica-swiper .swiper-slide-active .country span,
+	#africa-swiper .swiper-slide-active .country span,
+	#vertical-swiper .swiper-slide-active .regions span {
 		font-size: 6vw;
 	}
-	.presence-label, .sub-heading {
-		font-size: 3vw;
-	}
-	#vertical-swiper, #asia-swiper, #europe-swiper, #northamerica-swiper, #southamerica-swiper, #africa-swiper {
-		width: 60vw;
-		height: 50vh;
-		right: 0;
-		top: 22vw;
-	}
-	#countries {
-		right: 5vw;
-		height: 30vh;
-	}
-	.country-box {
-		width: 22vw;
-		height: 12vw;
-	}
-	.logo-back-btn, .logo-back-btn-2, .back-btn {
-		width: 6vw;
-		top: 22vw;
-	}
-}
-
-@media (max-width: 600px) {
-	html, body {
-		font-size: 14px;
-		overflow: auto;
-	}
-	.header {
-		height: 32vw;
-		padding: 2vw 0;
-	}
+	
 	.heading, .country-name {
-		font-size: 9vw;
+        font-size: 9vw;
+        width: 65%;
+    }
+	#myearth.shifted {
+    	position: relative;
+    	left: -15%;
+    	top: -30%;
+    	transform: scale(1.25);
 	}
-	.presence-label, .sub-heading {
-		font-size: 5vw;
-	}
-	#vertical-swiper, #asia-swiper, #europe-swiper, #northamerica-swiper, #southamerica-swiper, #africa-swiper {
-		width: 90vw;
-		height: 40vh;
-		right: 0;
-		top: 32vw;
+	#countries h1.heading .presence-label {
+            font-size: 8vw;
 	}
 	#countries {
-		right: 2vw;
-		height: 40vh;
-		gap: 3vw;
+        position: relative;
+        height: auto;
+        min-height: 25vh;
+        bottom: 10vw;
+        width: 88%;
+        gap: 3vw;
+        left: 0;
+		display: flex;
+		align-items:center;
+		justify-content:center;
+    }
+	#countries h1.heading .country-name {
+            font-size: 6vw;
 	}
-	.country-boxes {
-		width: 100%;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 3vw;
+	#countries h1.heading {
+    	text-align: center;
+    	line-height: 5vw;
+    	white-space: nowrap;
+    	text-overflow: ellipsis;
+    	width: 100%;
+    	display: block;
 	}
-	.country-box {
-		width: 40vw;
-		height: 20vw;
+	.country-nav-next {
+    font-size: 4.5vw;
 	}
-	.logo-back-btn, .logo-back-btn-2, .back-btn {
-		width: 10vw;
-		top: 32vw;
+	.swiper .back-btn{
+		/* width: 12vw; */
+        top: 6vw;
+        left: 9vw;
 	}
-	#glow {
-		max-width: 100vw;
-		height: 40vh;
-		max-height: 100vw;
+	#myearth.shifted #glow {
+            transform: translate(-50%, -50%) scale(1.45);
 	}
 }
 
@@ -524,7 +591,7 @@ a{
 		position: relative;
         height: auto;
         min-height: 20vh;
-        bottom: -8vw;
+        bottom: 0;
         width: 80%;
         gap: 3vw;
 	}
@@ -536,15 +603,14 @@ a{
 		position: fixed;
 	}
 	.country-box {
-		align-items: center;
-		justify-content: center;
 		width: 40vw;
 		height: 20vw;
 	}
 	.logo-back-btn, .logo-back-btn-2, .back-btn {
 		width: 12vw;
-        top: 45vw;
-        left: 40vw;
+        top: -10vw;
+        left: 0vw;
+        left: 0vw;
 	}
 	#glow {
 		height: 55vh;
@@ -574,11 +640,19 @@ a{
     	transform: scale(1.25);
 	}
 	#countries h1.heading .presence-label {
-    font-size: 6vw;
-    line-height: 0;
-	}
-	#countries h1.heading .country-name {
     font-size: 12vw;
+	}
+	#countries {
+        position: relative;
+        height: auto;
+        min-height: 20vh;
+        bottom: -15vw;
+        width: 88%;
+        gap: 3vw;
+        left: 0;
+    }
+	#countries h1.heading .country-name {
+    font-size: 8vw;
 	}
 	#countries h1.heading {
     	text-align: center;
@@ -592,14 +666,14 @@ a{
     font-size: 4.5vw;
 	}
 	.swiper .back-btn{
-        width: 8vw;
-        top: 12vw;
-        left: 46vw;
+		        width: 12vw;
+        top: 6vw;
+        left: 0vw;
+        left: 9vw;
 	}
 	#myearth.shifted #glow {
     transform: translate(-50%, -50%) scale(1.25);
 	}
 
 }
-	
 	
