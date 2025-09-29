@@ -281,27 +281,12 @@ const swiperConfig = {
             swiper.allowSlideNext = false;
             swiper.allowSlidePrev = false;
         }
-    },
-    
+    }
 };
 
 // Function to create a swiper with enhanced control
 function createControlledSwiper(elementId) {
-    const config = {...swiperConfig};
-    
-    // Add breakpoints only for vertical-swiper
-    if (elementId === '#vertical-swiper') {
-        config.breakpoints = {
-            780: {
-                slidesPerView: 5
-            },
-            0: {
-                slidesPerView: 1
-            }
-        };
-    }
-    
-    const swiper = new Swiper(elementId, config);
+    const swiper = new Swiper(elementId, swiperConfig);
     
     swiper.on('touchStart', function() {
         this.allowSlideNext = true;
@@ -366,13 +351,19 @@ function ensureNavButtons(containerSelector) {
     container.appendChild(next);
     created = true;
     // Add click handler to loop infinitely
+    // At click time re-query the container and use its attached swiper instance.
     next.addEventListener('click', function() {
-      const swiperInstance = container.swiper;
+      const curContainer = document.querySelector(containerSelector);
+      const swiperInstance = curContainer && (curContainer.swiper || curContainer.__swiper);
       if (swiperInstance && typeof swiperInstance.slideNext === 'function') {
-        swiperInstance.slideNext(); // Will loop if Swiper is configured with loop: true
+        swiperInstance.slideNext();
+      } else {
+        console.debug('country nav: swiper instance not found for', containerSelector);
       }
     });
   }
+
+  
 
   // Return true if the next button now exists (either existed before or we created it)
   return !!container.querySelector('.country-nav-next') || created;
@@ -447,6 +438,18 @@ function createCountrySwiper(selector) {
     if (typeof updateGlobeTexturePreserve === 'function') updateGlobeTexturePreserve().catch(()=>{});
   });
 
+ // attach instance to DOM node so click handlers can find it later
+  try {
+    const el = document.querySelector(selector);
+    if (el) {
+      el.swiper = sw;
+      el.__swiper = sw; // some Swiper builds use __swiper
+    }
+  } catch (e) { console.debug('attach swiper to DOM failed', e); }
+
+  // ensure no autoplay is running
+  try { sw.autoplay && sw.autoplay.stop && sw.autoplay.stop(); } catch(e){}
+  // ...existing code...
   return sw;
 }
 //
